@@ -12,6 +12,8 @@
 		A7AC250D1FD3749100BB4CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7AC250B1FD3749100BB4CA8 /* Main.storyboard */; };
 		A7AC250F1FD3749100BB4CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AC250E1FD3749100BB4CA8 /* Assets.xcassets */; };
 		A7AC25121FD3749100BB4CA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7AC25101FD3749100BB4CA8 /* LaunchScreen.storyboard */; };
+		A7AC251A1FD399A100BB4CA8 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AC25191FD399A100BB4CA8 /* Concentration.swift */; };
+		A7AC251C1FD399B200BB4CA8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AC251B1FD399B200BB4CA8 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A7AC250E1FD3749100BB4CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7AC25111FD3749100BB4CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7AC25131FD3749100BB4CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7AC25191FD399A100BB4CA8 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		A7AC251B1FD399B200BB4CA8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				A7AC25071FD3749100BB4CA8 /* AppDelegate.swift */,
 				A7AC25091FD3749100BB4CA8 /* ViewController.swift */,
+				A7AC25191FD399A100BB4CA8 /* Concentration.swift */,
+				A7AC251B1FD399B200BB4CA8 /* Card.swift */,
 				A7AC250B1FD3749100BB4CA8 /* Main.storyboard */,
 				A7AC250E1FD3749100BB4CA8 /* Assets.xcassets */,
 				A7AC25101FD3749100BB4CA8 /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			files = (
 				A7AC250A1FD3749100BB4CA8 /* ViewController.swift in Sources */,
 				A7AC25081FD3749100BB4CA8 /* AppDelegate.swift in Sources */,
+				A7AC251A1FD399A100BB4CA8 /* Concentration.swift in Sources */,
+				A7AC251C1FD399B200BB4CA8 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
