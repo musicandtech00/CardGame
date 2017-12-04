@@ -10,14 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //to keep track of the card game
     var flipCount = 0 {
         didSet{
             flipCountLabel.text = "FLips: \(flipCount)"
         }
     }
     
+    //game model
     private lazy var game = Concentration(numberOfPairOfCards: numberOfPairOfCards)
     
+    // return the number of cards
     var numberOfPairOfCards: Int{
         get{
             return (cardButtons.count+1) / 2
@@ -27,13 +30,15 @@ class ViewController: UIViewController {
     var emojiChoices = ["😀","☠️","🤣","😎","😤","🤢","👽","💩","👿",]
     var animalChoices = ["🐶","🐱","🐧","🐸","🐛","🦋","🐣","🐊","🐋"]
     
+    //hold the values to display the emoji for each button
     var emoji = [Int:String]()
 
     
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var flipCountLabel: UILabel! //flip count label
     
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet var cardButtons: [UIButton]!  //array of buttons
 
+    //Touch the buttond/card and the update the view.
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
         if let cardNumber = cardButtons.index(of: sender){
@@ -45,7 +50,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    //start a new game
     @IBAction func startNewGame(_ sender: UIButton) {
         flipCount = 0
         game.restartGame()
@@ -54,7 +59,7 @@ class ViewController: UIViewController {
     }
     
     
-    
+    //display the button that was slected and if there is a match. i need the button seelcted and the card
     func updateViewFromModel(){
         for index in cardButtons.indices{
             let button = cardButtons[index]
@@ -72,6 +77,7 @@ class ViewController: UIViewController {
         
     }
     
+    //randomly fill the emoji with the buttons
     func emoji(for card: Cards)->String{
         if emoji[card.identifier] == nil {
             if sportChoices.count > 0 {
