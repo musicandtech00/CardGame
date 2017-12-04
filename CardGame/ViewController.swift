@@ -16,9 +16,16 @@ class ViewController: UIViewController {
         }
     }
     
-    lazy var game = Concentration(numberOfPairOfCards: (cardButtons.count+1) / 2)
+    private lazy var game = Concentration(numberOfPairOfCards: numberOfPairOfCards)
     
-    var emojiChoices = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","🥅"]
+    var numberOfPairOfCards: Int{
+        get{
+            return (cardButtons.count+1) / 2
+        }
+    }
+    var sportChoices = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","🥅"]
+    var emojiChoices = ["😀","☠️","🤣","😎","😤","🤢","👽","💩","👿",]
+    var animalChoices = ["🐶","🐱","🐧","🐸","🐛","🦋","🐣","🐊","🐋"]
     
     var emoji = [Int:String]()
 
@@ -41,6 +48,7 @@ class ViewController: UIViewController {
     
     @IBAction func startNewGame(_ sender: UIButton) {
         flipCount = 0
+        game.restartGame()
         updateViewFromModel()
         
     }
@@ -66,9 +74,9 @@ class ViewController: UIViewController {
     
     func emoji(for card: Cards)->String{
         if emoji[card.identifier] == nil {
-            if emojiChoices.count > 0 {
-                let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-                emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+            if sportChoices.count > 0 {
+                //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+                emoji[card.identifier] = sportChoices.remove(at: sportChoices.count.arc4random)
             }
         }
         
@@ -79,8 +87,18 @@ class ViewController: UIViewController {
         }
         
     }
-   
 
+}
 
+extension Int{
+    var arc4random: Int{
+        if self > 0{
+        return Int(arc4random_uniform(UInt32(self)))
+        }else if self < 0 {
+            return -Int(arc4random_uniform(UInt32(self)))
+        }else{
+            return 0
+        }
+    }
 }
 

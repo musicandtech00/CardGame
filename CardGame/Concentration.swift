@@ -12,7 +12,28 @@ import Foundation
 class Concentration {
     
     var cards = [Cards]()
-    var indexOfOneAndOnlyFaceUpCard: Int?//keep track if there one and only card face up
+    var indexOfOneAndOnlyFaceUpCard: Int?{
+        get{
+            var foundIndex: Int?
+            for index in cards.indices{
+                if cards[index].isFacedUp{
+                    if foundIndex == nil{
+                        foundIndex = index
+                    }else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set{
+            
+            for index in cards.indices{
+                cards[index].isFacedUp = (index == newValue)
+            }
+            
+        }
+    }//keep track if there one and only card face up
     
     //1)no cards are face up
     //2) two cards are face up either matching or not matching
@@ -29,14 +50,14 @@ class Concentration {
                     cards[index].isMatched = true
                 }
                 cards[index].isFacedUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
+                //indexOfOneAndOnlyFaceUpCard = nil
             }else{
                 //either no cards or 2 cards are face up
-                for flipDownIndex in cards.indices{
-                    cards[flipDownIndex].isFacedUp = false
-                    
-                }
-                cards[index].isFacedUp = true
+//                for flipDownIndex in cards.indices{
+//                    cards[flipDownIndex].isFacedUp = false
+//
+//                }
+//                cards[index].isFacedUp = true
                 indexOfOneAndOnlyFaceUpCard = index
              }
         }
@@ -55,6 +76,13 @@ class Concentration {
         cards.shuffle()
         
         
+    }
+    
+    func restartGame(){
+        for index in cards.indices{
+            cards[index].isFacedUp = false
+            cards[index].isMatched = false 
+        }
     }
 }
 
