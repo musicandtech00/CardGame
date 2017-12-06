@@ -30,6 +30,13 @@ class ViewController: UIViewController {
     var emojiChoices = ["😀","☠️","🤣","😎","😤","🤢","👽","💩","👿",]
     var animalChoices = ["🐶","🐱","🐧","🐸","🐛","🦋","🐣","🐊","🐋"]
     
+    
+    //so this is where i combine the three data structures into a dictionary
+    var allTheChoices = ["sportChoices":["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","🥅"],"emojiChoices":["😀","☠️","🤣","😎","😤","🤢","👽","💩","👿",],"animalChoices":["🐶","🐱","🐧","🐸","🐛","🦋","🐣","🐊","🐋"]]
+
+    
+    
+    
     //hold the values to display the emoji for each button
     var emoji = [Int:String]()
 
@@ -77,9 +84,13 @@ class ViewController: UIViewController {
         
     }
     
-    //randomly fill the emoji with the buttons
+    //randomly fill the emoji with the buttons. i use a dictionary here to store the card number with a symbol.
+    
+    //MARK: THis is the part i need help with. 
     func emoji(for card: Cards)->String{
+        
         if emoji[card.identifier] == nil {
+     
             if sportChoices.count > 0 {
                 //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
                 emoji[card.identifier] = sportChoices.remove(at: sportChoices.count.arc4random)
@@ -95,7 +106,7 @@ class ViewController: UIViewController {
     }
 
 }
-
+//create a random number
 extension Int{
     var arc4random: Int{
         if self > 0{

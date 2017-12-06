@@ -53,7 +53,7 @@ class Concentration {
                 //indexOfOneAndOnlyFaceUpCard = nil
             }else{
                 //either no cards or 2 cards are face up
-//                for flipDownIndex in cards.indices{
+//                for for ffdasflipDownIndex in cards.indices{
 //                    cards[flipDownIndex].isFacedUp = false
 //
 //                }
