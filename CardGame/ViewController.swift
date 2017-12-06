@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         }
     }
     
+    var counter = 0
+    
     //game model
     private lazy var game = Concentration(numberOfPairOfCards: numberOfPairOfCards)
     
@@ -62,6 +64,8 @@ class ViewController: UIViewController {
         flipCount = 0
         game.restartGame()
         updateViewFromModel()
+        counter += 1
+        emoji.removeAll()
         
     }
     
@@ -72,8 +76,18 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFacedUp{
+                if (counter % 3) == 1{
                 button.setTitle(emoji(for: card), for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                }
+                if (counter % 3) == 2{
+                    button.setTitle(emoji(for2: card), for: UIControlState.normal)
+                    button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                }
+                if (counter % 3) == 0{
+                    button.setTitle(emoji(for3: card), for: UIControlState.normal)
+                    button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                }
             }
             else {
                 button.setTitle("", for: UIControlState.normal)
@@ -86,19 +100,55 @@ class ViewController: UIViewController {
     
     //randomly fill the emoji with the buttons. i use a dictionary here to store the card number with a symbol.
     
-    //MARK: THis is the part i need help with. 
-    func emoji(for card: Cards)->String{
+    //MARK: THis is the part i need help with.
+    func emoji(for Sportscard: Cards)->String{
         
-        if emoji[card.identifier] == nil {
+        if emoji[Sportscard.identifier] == nil {
      
             if sportChoices.count > 0 {
                 //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-                emoji[card.identifier] = sportChoices.remove(at: sportChoices.count.arc4random)
+                emoji[Sportscard.identifier] = sportChoices.remove(at: sportChoices.count.arc4random)
             }
         }
         
-        if emoji[card.identifier] != nil {
-            return emoji[card.identifier]!
+        if emoji[Sportscard.identifier] != nil {
+            return emoji[Sportscard.identifier]!
+        }else{
+            return "?"
+        }
+        
+    }
+    
+    func emoji(for2 Emojicard: Cards)->String{
+        
+        if emoji[Emojicard.identifier] == nil {
+            
+            if emojiChoices.count > 0 {
+                //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+                emoji[Emojicard.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            }
+        }
+        
+        if emoji[Emojicard.identifier] != nil {
+            return emoji[Emojicard.identifier]!
+        }else{
+            return "?"
+        }
+        
+    }
+    
+    func emoji(for3 animalCard: Cards)->String{
+        
+        if emoji[animalCard.identifier] == nil {
+            
+            if animalChoices.count > 0 {
+                //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+                emoji[animalCard.identifier] = animalChoices.remove(at: animalChoices.count.arc4random)
+            }
+        }
+        
+        if emoji[animalCard.identifier] != nil {
+            return emoji[animalCard.identifier]!
         }else{
             return "?"
         }
